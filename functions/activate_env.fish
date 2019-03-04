@@ -34,6 +34,6 @@ function activate_env -d 'Enter materials envrionment'
   else
     set -e MP_SCREEN_NAME MP_CODES_ROOT
     echo "Unrecognized environment or config name."
-  fi
+  end
 
 end
