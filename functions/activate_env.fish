@@ -9,7 +9,7 @@ function activate_env -d 'Enter materials envrionment'
 
   set -x MP_SCREEN_NAME $env_name
 
-  if -q user_dir[1]
+  if set -q user_dir[1]
     set -l mp_env_root $MP_ENVS_ROOT/$user_dir/envs/$env_dir
   else
     set -l mp_env_root $MP_ENVS_ROOT/envs/$env_dir
@@ -17,7 +17,7 @@ function activate_env -d 'Enter materials envrionment'
 
   set -x MP_CODES_ROOT $mp_env_root/codes
 
-  if -q $argv[2]
+  if set -q $argv[2]
     set -l config_path $mp_env_root/configs/$argv[2]
     set -l env_msg "Welcome to $env_name with $argv[2] config."
   else
