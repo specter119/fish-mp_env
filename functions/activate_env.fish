@@ -1,13 +1,7 @@
 #!/usr/env/bin fish
 
 function activate_env -d 'Enter materials envrionment'
-  # you can use:
-  # `activate_env atomate`:
-  #     activate `atomate` env config in ~/envs/atomate/config
-  # `activate_env keliu/kl_atomate`:
-  #     activate `kl_atomate` env config in ~/keliu/envs/atomate/config
-  # `activate_env keliu/kl_atomate cpu`:
-  #     activate `kl_atomate` env config in ~/keliu/envs/ataomte/configs/cpu
+
   set -q MP_ENVS_ROOT[1]; or set -l MP_ENVS_ROOT $HOME
   set -l env_name (string split -rm 1 '/' -- $argv[1])[-1]
   set -l env_dir (string split -rm 1 '_' -- $MP_SCREEN_NAME)[-1]
@@ -20,6 +14,7 @@ function activate_env -d 'Enter materials envrionment'
   else
     set -l mp_env_root $MP_ENVS_ROOT/envs/$env_dir
   end
+
   set -x MP_CODES_ROOT $mp_env_root/codes
 
   if -q $argv[2]
@@ -40,4 +35,5 @@ function activate_env -d 'Enter materials envrionment'
     set -e MP_SCREEN_NAME MP_CODES_ROOT
     echo "Unrecognized environment or config name."
   fi
+
 end
