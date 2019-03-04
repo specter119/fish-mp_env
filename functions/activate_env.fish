@@ -1,0 +1,41 @@
+#!/usr/env/bin fish
+
+function activate_env -d 'Enter materials envrionment'
+  # you can use:
+  # `activate_env atomate`:
+  #     activate `atomate` env config in ~/envs/atomate/config
+  # `activate_env keliu/kl_atomate`:
+  #     activate `kl_atomate` env config in ~/keliu/envs/atomate/config
+  # `activate_env keliu/kl_atomate cpu`:
+  #     activate `kl_atomate` env config in ~/keliu/envs/ataomte/configs/cpu
+  set -q MP_ENVS_ROOT[1]; or set -l MP_ENVS_ROOT $HOME
+  set -x MP_SCREEN_NAME (string split -rm 1 '/' -- $argv[1])[-1]
+  set -l env_dir (string split -rm 1 '_' -- $MP_SCREEN_NAME)[-1]
+  set -l user_dir (string split -rm 1 '/' -- $argv[1])[-2]
+
+  if -q user_dir[1]
+    set -l mp_env_root $MP_ENVS_ROOT/$user_dir/envs/$env_dir
+  else
+    set -l mp_env_root $MP_ENVS_ROOT/envs/$env_dir
+  end
+  set -x MP_CODES_ROOT $mp_env_root/codes
+
+  if -q $argv[2]
+    set -l config_path $mp_env_root/configs/$argv[2]
+    set -l env_msg "Welcome to $MP_SCREEN_NAME with $argv[2] config."
+  else
+    set -l config_path $mp_env_root/config
+    set -l env_msg "Welcome to $MP_SCREEN_NAME."
+  end
+
+  if [ -d $config_path ]
+    set -x FW_CONFIG_FILE $config_path/FW_config.yaml
+    set -x DB_LOC $config_path/../dbs
+    conda activate $MP_SCREEN_NAME
+    echo env_msg
+    echo "Config path: $config_path"
+  else
+    set -e MP_SCREEN_NAME MP_CODES_ROOT
+    echo "Unrecognized environment or config name."
+  fi
+end
