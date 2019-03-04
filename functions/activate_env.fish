@@ -32,7 +32,7 @@ function activate_env -d 'Enter materials envrionment'
     echo $env_msg
     echo "Config path: $config_path."
   else
-    for e in (MP_SCREEN_NAME MP_CODES_ROOT)
+    for e in MP_SCREEN_NAME MP_CODES_ROOT
       set -e $e
     end
     echo "Unrecognized environment or config name."
