@@ -9,9 +9,11 @@ function activate_env -d 'Enter materials envrionment'
   # `activate_env keliu/kl_atomate cpu`:
   #     activate `kl_atomate` env config in ~/keliu/envs/ataomte/configs/cpu
   set -q MP_ENVS_ROOT[1]; or set -l MP_ENVS_ROOT $HOME
-  set -x MP_SCREEN_NAME (string split -rm 1 '/' -- $argv[1])[-1]
+  set -l env_name (string split -rm 1 '/' -- $argv[1])[-1]
   set -l env_dir (string split -rm 1 '_' -- $MP_SCREEN_NAME)[-1]
   set -l user_dir (string split -rm 1 '/' -- $argv[1])[-2]
+
+  set -x MP_SCREEN_NAME $env_name
 
   if -q user_dir[1]
     set -l mp_env_root $MP_ENVS_ROOT/$user_dir/envs/$env_dir
@@ -22,16 +24,16 @@ function activate_env -d 'Enter materials envrionment'
 
   if -q $argv[2]
     set -l config_path $mp_env_root/configs/$argv[2]
-    set -l env_msg "Welcome to $MP_SCREEN_NAME with $argv[2] config."
+    set -l env_msg "Welcome to $env_name with $argv[2] config."
   else
     set -l config_path $mp_env_root/config
-    set -l env_msg "Welcome to $MP_SCREEN_NAME."
+    set -l env_msg "Welcome to $env_name."
   end
 
   if [ -d $config_path ]
     set -x FW_CONFIG_FILE $config_path/FW_config.yaml
     set -x DB_LOC $config_path/../dbs
-    conda activate $MP_SCREEN_NAME
+    conda activate $env_name
     echo env_msg
     echo "Config path: $config_path"
   else
