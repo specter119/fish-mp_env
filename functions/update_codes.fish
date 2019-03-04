@@ -9,7 +9,7 @@ function update_codes -d 'Update packages from local git repos'
       git pull
       pip install -e .
       cd $OLDPWD
-    fi
+    end
   else
     conda upgrade --all -y
     conda clean --index-cache --packages --tarballs -y
@@ -19,5 +19,5 @@ function update_codes -d 'Update packages from local git repos'
       update_codes $i
     end
     module load (string split ':' -- $modules_backup)
-  fi
+  end
 end
