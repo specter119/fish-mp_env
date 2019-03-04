@@ -1,7 +1,7 @@
 #!/usr/env/bin fish
 
 function update_codes -d 'Update packages from local git repos'
-  if [ $argv -gt 0 ]
+  if set -q $argv[1]
     code_path=$MP_CODES_ROOT/$i
     if [ -d $code_path ]
       echo -e "\nUpdating $i in $code_path:"
