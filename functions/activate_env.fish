@@ -30,7 +30,7 @@ function activate_env -d 'Enter materials envrionment'
     set -gx DB_LOC $config_path/../dbs
     conda activate $env_name
     echo $env_msg
-    echo "Config path: $config_path."
+    echo "Config path: ${config_path}."
   else
     for e in (MP_SCREEN_NAME MP_CODES_ROOT)
       set -e $e
