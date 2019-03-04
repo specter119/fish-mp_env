@@ -29,7 +29,7 @@ function activate_env -d 'Enter materials envrionment'
     set -x FW_CONFIG_FILE $config_path/FW_config.yaml
     set -x DB_LOC $config_path/../dbs
     conda activate $env_name
-    echo env_msg
+    echo $env_msg
     echo "Config path: $config_path"
   else
     set -e MP_SCREEN_NAME MP_CODES_ROOT
