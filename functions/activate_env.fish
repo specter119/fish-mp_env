@@ -14,6 +14,7 @@ function activate_env -d 'Enter materials envrionment'
   else
     set mp_env_root $MP_ENVS_ROOT/$user_dir/envs/$env_dir
   end
+  echo $mp_env_root
 
   set -gx MP_CODES_ROOT $mp_env_root/codes
 
@@ -24,6 +25,7 @@ function activate_env -d 'Enter materials envrionment'
     set config_path $mp_env_root/configs/$argv[2]
     set env_msg "Welcome to $env_name with $argv[2] config."
   end
+  echo $config_path
 
   if [ -d $config_path ]
     set -gx FW_CONFIG_FILE $config_path/FW_config.yaml
