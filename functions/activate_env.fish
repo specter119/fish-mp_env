@@ -10,9 +10,9 @@ function activate_env -d 'Enter materials envrionment'
   set -gx MP_SCREEN_NAME $env_name
 
   if set -q user_dir[1]
-    set mp_env_root $MP_ENVS_ROOT/envs/$env_dir
-  else
     set mp_env_root $MP_ENVS_ROOT/$user_dir/envs/$env_dir
+  else
+    set mp_env_root $MP_ENVS_ROOT/envs/$env_dir
   end
   echo $mp_env_root
 
