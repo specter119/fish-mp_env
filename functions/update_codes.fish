@@ -15,7 +15,7 @@ function update_codes -d 'Update packages from local git repos'
     conda clean --index-cache --packages --tarballs -y
     set modules_backup $LOADEDMODULES
     module purge
-    for i in pymatgen pymatgen-db fireworks custodian atomate mpworks
+    for i in (ls $MP_CODES_ROOT)
       update_codes $i
     end
     module load (string split ':' -- $modules_backup)
