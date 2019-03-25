@@ -11,7 +11,7 @@ function update_codes -d 'Update packages from local git repos'
     end
     module load (string split ':' -- $modules_backup)
   else
-    set code_path $MP_CODES_ROOT/$i
+    set code_path $MP_CODES_ROOT/$argv[1]
     if [ -d $code_path ]
       echo -e "\nUpdating $i in $code_path:"
       cd $code_path
