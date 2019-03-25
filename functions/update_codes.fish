@@ -13,7 +13,7 @@ function update_codes -d 'Update packages from local git repos'
   else
     set code_path $MP_CODES_ROOT/$argv[1]
     if [ -d $code_path ]
-      echo -e "\nUpdating $i in $code_path:"
+      echo -e "\nUpdating $argv[1] in $code_path:"
       cd $code_path
       git pull
       pip install -e .
