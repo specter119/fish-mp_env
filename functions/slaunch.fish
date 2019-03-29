@@ -8,6 +8,7 @@ function slaunch -d 'Launch one or more calculations'
     set n_launcher $argv[1]
   else
     set n_launcher 1
+  end
   echo "n_launcher is $n_launcher"
   qlaunch -r rapidfire --nlaunches $n_launcher -b 10000
   cd $dirprev[-1]
