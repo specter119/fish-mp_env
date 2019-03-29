@@ -7,5 +7,5 @@ function plaunch -d 'Launch calculations background continuously'
   if [ ( screen -ls | grep $MP_SCREEN_NAME | wc -l ) -eq 0 ]
     screen -dmS $MP_SCREEN_NAME qlaunch -r rapidfire --nlaunches infinite -m $queue_len --sleep 30 -b 10000
   end
-  cd $OLDPWD
+  cd $dirprev[-1]
 end

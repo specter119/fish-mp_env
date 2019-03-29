@@ -10,5 +10,5 @@ function slaunch -d 'Launch one or more calculations'
     set n_launcher 1
   echo "n_launcher is $n_launcher"
   qlaunch -r rapidfire --nlaunches $n_launcher -b 10000
-  cd $OLDPWD
+  cd $dirprev[-1]
 end
