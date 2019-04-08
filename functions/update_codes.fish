@@ -16,7 +16,7 @@ function update_codes -d 'Update packages from local git repos'
         cd $code_path
         git pull
         pip install -e .
-        cd $OLDPWD
+        cd $dirprev[-1]
       end
     end
   end
