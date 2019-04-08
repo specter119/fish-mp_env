@@ -1,5 +1,3 @@
-#!/usr/env/bin fish
-
 function plaunch -d 'Launch calculations background continuously'
   set -q MP_LAUNCH_ROOT[1]; or set MP_LAUNCH_ROOT $HOME/blocks
   cd $MP_LAUNCH_ROOT

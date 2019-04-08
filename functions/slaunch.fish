@@ -1,5 +1,3 @@
-#!/usr/env/bin fish
-
 function slaunch -d 'Launch one or more calculations'
   set -q MP_LAUNCH_ROOT[1]; or set MP_LAUNCH_ROOT $HOME/blocks
   cd $MP_LAUNCH_ROOT

@@ -1,5 +1,3 @@
-#!/usr/env/bin fish
-
 function activate_env -d 'Enter materials envrionment'
 
   set -q MP_ENVS_ROOT[1]; or set MP_ENVS_ROOT $HOME

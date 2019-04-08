@@ -1,5 +1,3 @@
-#!/usr/env/bin fish
-
 function use_none -d 'Exit materials environment'
   conda deactivate
   for e in FW_CONFIG_FILE DB_LOC MP_CODES_ROOT MP_LAUNCH_ROOT MP_SCREEN_NAME

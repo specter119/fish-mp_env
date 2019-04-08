@@ -1,5 +1,3 @@
-#!/usr/env/bin fish
-
 function update_codes -d 'Update packages from local git repos'
   if set -q $argv[1]
     conda upgrade --all -y
