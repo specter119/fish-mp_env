@@ -1,4 +1,5 @@
 function update_codes -d 'Update packages from local git repos'
+  type -q pyenv; and set -lx PATH (string match -ev (pyenv root) $PATH)
   if set -q $argv[1]
     conda upgrade --all -y
     conda clean --index-cache --packages --tarballs -y
